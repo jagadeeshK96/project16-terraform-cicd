@@ -20,10 +20,10 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform Init
-        run: terraform init terraform/
+        run: terraform -chdir=terraform init
 
       - name: Terraform Validate
-        run: terraform validate terraform/
+        run: terraform -chdir=terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -var="bucket_name=my-default-ci-bucket-2025" -var-file=terraform/variables.tfvars
+        run: terraform -chdir=terraform plan -var="bucket_name=my-default-ci-bucket-2025"
